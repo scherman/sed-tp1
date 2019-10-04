@@ -1,10 +1,10 @@
 #include "pmodeladm.h"
 #include "register.h"
 
-#include "pulse.h"
+#include "sun.h"
 
 
 void register_atomics_on(ParallelModelAdmin &admin)
 {
-	admin.registerAtomic(NewAtomicFunction<Pulse>(), ATOMIC_MODEL_NAME);
+	admin.registerAtomic(NewAtomicFunction<Sun>(), ATOMIC_MODEL_NAME);
 }

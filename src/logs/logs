@@ -1,0 +1,4 @@
+[logfiles]
+ParallelRoot : logs/logs00 
+top : logs/logs02 
+sun : logs/logs01 
