@@ -1,0 +1,1 @@
+${OBJ_DIR}/tokit.o tokit.dep : tokit.cpp tokit.h

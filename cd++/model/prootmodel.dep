@@ -1,0 +1,1 @@
+${OBJ_DIR}/prootmodel.o prootmodel.dep : prootmodel.cpp

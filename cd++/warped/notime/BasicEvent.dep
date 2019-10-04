@@ -1,0 +1,3 @@
+${OBJ_DIR}/BasicEvent.o BasicEvent.dep : BasicEvent.cpp BasicEvent.h NoTime.h \
+ SimulationTime.h DefaultVTime.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h

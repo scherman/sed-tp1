@@ -1,0 +1,7 @@
+${OBJ_DIR}/value.o value.dep : value.cpp value.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
+ real.h undefd.h tbool.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h \
+ tuple_value.h

@@ -1,0 +1,5 @@
+${OBJ_DIR}/cellpartition.o cellpartition.dep : cellpartition.cpp cellpartition.h \
+ partitionzone.h zone.h cellpos.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/ntupla.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h

@@ -1,0 +1,11 @@
+${OBJ_DIR}/cellstate.o cellstate.dep : cellstate.cpp cellstate.h cellpos.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/ntupla.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/undefd.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/tbool.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
+ /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h
