@@ -1,5 +1,5 @@
-#ifndef _PULSE_H_
-#define _PULSE_H_
+#ifndef _SUN_H_
+#define _SUN_H_
 
 #include <random>
 
@@ -7,14 +7,13 @@
 #include "VTime.h"
 
 
-#define ATOMIC_MODEL_NAME "Sun"
-
+#define SUN_MODEL_NAME "Sun"
 
 class Sun : public Atomic {
   public:
     
-    Sun(const string &name = ATOMIC_MODEL_NAME );
-    virtual string className() const {  return ATOMIC_MODEL_NAME ;}
+    Sun(const string &name = SUN_MODEL_NAME );
+    virtual string className() const {  return SUN_MODEL_NAME ;}
   
   protected:
     Model &initFunction();
