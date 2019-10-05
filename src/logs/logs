@@ -1,6 +1,7 @@
 [logfiles]
 ParallelRoot : logs/logs00 
-top : logs/logs04 
+top : logs/logs05 
 sun : logs/logs01 
-solar_panel : logs/logs03 
+solar_panel : logs/logs04 
 controller : logs/logs02 
+solar_cell : logs/logs03 
