@@ -26,8 +26,6 @@ using namespace std;
 
 Sun::Sun(const string &name) :
 	Atomic(name),
-//	start(addInputPort("start")),
-//	stop(addInputPort("stop")),
 	radiation(addOutputPort("radiation")),
 	degree(addOutputPort("degree")),
 	frequency_time(0,0,1,0),
@@ -49,19 +47,6 @@ Model &Sun::externalFunction(const ExternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dext");
 #endif
-
-//	if(msg.port() == start)
-//	{
-//		this->on = true;
-//		holdIn(AtomicState::active, this->frequency_time);
-//	}
-//	else if(msg.port() == stop)
-//	{
-//		this->on = false;
-//		passivate();
-//	}
-	holdIn(AtomicState::active, this->frequency_time);
-
 	return *this;
 }
 
@@ -71,12 +56,6 @@ Model &Sun::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-
-//	if(this->on)
-//		holdIn(AtomicState::active, this->frequency_time);
-//	else
-//		passivate();
-
 	holdIn(AtomicState::active, this->frequency_time);
 
 	return *this ;

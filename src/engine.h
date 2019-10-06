@@ -24,12 +24,16 @@ class Engine : public Atomic {
 
   private:
 
-    const Port &rotation;
+    // Input ports
+    const Port &rotation_val;
     
+    // Output ports
     Port &consumed_energy;
     
+    // Parameters
     float consumption_factor;
 
+    // Internal
     VTime frequency_time;
 };
 

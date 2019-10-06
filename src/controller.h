@@ -24,14 +24,17 @@ class Controller : public Atomic {
 
   private:
 
+    // Input ports
     const Port &radiation;
     const Port &degree;
 
-    Port &rotation;
-    Port &rays;
+    // Output ports
+    Port &rotation_val;
+    Port &rays_val;
 
-    float rad;
-    float deg;
+    // Internal
+    float _radiation;
+    float _degree;
 
     VTime frequency_time;
 };

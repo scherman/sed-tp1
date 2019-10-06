@@ -54,7 +54,6 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 	{
 		holdIn(AtomicState::active, this->frequency_time);
 	}
-	holdIn(AtomicState::active, this->frequency_time);
 
 	return *this;
 }
@@ -65,12 +64,6 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-
-//	if(this->on)
-//		holdIn(AtomicState::active, this->frequency_time);
-//	else
-//		passivate();
-
 	holdIn(AtomicState::active, this->frequency_time);
 
 	return *this ;

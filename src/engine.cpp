@@ -26,7 +26,7 @@ using namespace std;
 
 Engine::Engine(const string &name) :
 	Atomic(name),
-	rotation(addInputPort("rotation_val")),
+	rotation_val(addInputPort("rotation_val")),
 	consumed_energy(addOutputPort("consumed_energy")),
 	frequency_time(0,0,1,0)
 {
@@ -50,11 +50,10 @@ Model &Engine::externalFunction(const ExternalMessage &msg)
 	PRINT_TIMES("dext");
 #endif
 
-	if(msg.port() == rotation)
+	if(msg.port() == rotation_val)
 	{
 		holdIn(AtomicState::active, this->frequency_time);
 	}
-	holdIn(AtomicState::active, this->frequency_time);
 
 	return *this;
 }
@@ -65,12 +64,6 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-
-//	if(this->on)
-//		holdIn(AtomicState::active, this->frequency_time);
-//	else
-//		passivate();
-
 	holdIn(AtomicState::active, this->frequency_time);
 
 	return *this ;

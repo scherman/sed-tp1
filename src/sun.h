@@ -22,14 +22,13 @@ class Sun : public Atomic {
     Model &outputFunction( const CollectMessage & );
 
   private:
-//    const Port &start;
-//    const Port &stop;
+
+    // Output ports
     Port &radiation;
     Port &degree;
 
+    // Internal
     VTime frequency_time;
-//    bool on;
-
     std::uniform_int_distribution<int> dist;
     std::mt19937 rng;
 };

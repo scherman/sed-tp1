@@ -1,11 +1,11 @@
 [top]
 components : sun@sun solar_panel
-out : out_port1 out_port2 
+out : obtained_energy consumed_energy
 in : start stop
 link : radiation@sun radiation@solar_panel
 link : degree@sun degree@solar_panel
-link : obtained_energy@solar_panel out_port1
-link : consumed_energy@solar_panel out_port2
+link : obtained_energy@solar_panel obtained_energy
+link : consumed_energy@solar_panel consumed_energy
 
 [solar_panel]
 components : controller@controller solar_cell@solarcell engine@engine
