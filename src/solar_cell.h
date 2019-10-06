@@ -31,6 +31,8 @@ class SolarCell : public Atomic {
     float rad;
     float deg;
 
+    float conversion_factor;
+
     VTime frequency_time;
 };
 

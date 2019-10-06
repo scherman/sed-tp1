@@ -20,3 +20,11 @@ link : rays_val@controller rays_val@solar_cell
 
 link : obtained_energy@solar_cell obtained_energy
 link : consumed_energy@engine consumed_energy
+
+
+[solar_cell]
+conversion_factor : 0.7
+
+
+[engine]
+consumption_factor : 0.2

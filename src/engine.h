@@ -27,6 +27,8 @@ class Engine : public Atomic {
     const Port &rotation;
     
     Port &consumed_energy;
+    
+    float consumption_factor;
 
     VTime frequency_time;
 };

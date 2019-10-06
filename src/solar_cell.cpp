@@ -35,6 +35,10 @@ SolarCell::SolarCell(const string &name) :
 
 Model &SolarCell::initFunction()
 {
+	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "conversion_factor"));
+	param_str >> conversion_factor;
+	std::cout << "[Solar Cell] Conversion factor: " << conversion_factor << std::endl;
+
 	holdIn(AtomicState::active, this->frequency_time);
 	return *this;
 }

@@ -35,6 +35,10 @@ Engine::Engine(const string &name) :
 
 Model &Engine::initFunction()
 {
+	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "consumption_factor"));
+	param_str >> consumption_factor;
+	std::cout << "[Engine] Consumption factor: " << consumption_factor << std::endl;
+
 	holdIn(AtomicState::active, this->frequency_time);
 	return *this;
 }
