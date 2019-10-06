@@ -11,10 +11,10 @@
 
 class Sun : public Atomic {
   public:
-    
+
     Sun(const string &name = SUN_MODEL_NAME );
     virtual string className() const {  return SUN_MODEL_NAME ;}
-  
+
   protected:
     Model &initFunction();
     Model &externalFunction( const ExternalMessage & );
@@ -31,6 +31,8 @@ class Sun : public Atomic {
     VTime frequency_time;
     std::uniform_int_distribution<int> dist;
     std::mt19937 rng;
+    fstream finRad;
+    fstream finDeg;
 };
 
 #endif

@@ -1,11 +1,12 @@
-${OBJ_DIR}/real.o real.dep : real.cpp real.h undefd.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
- value.h tbool.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h \
- realprec.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/math/mathincl.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/strutil.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h
+${OBJ_DIR}/real.o real.dep : real.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/real.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/undefd.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/impresion.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/value.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/tbool.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/except.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/evaldeb.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/realprec.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/math/mathincl.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/strutil.h

@@ -1,6 +1,7 @@
 #include <random>
 #include <string>
-
+#include <fstream>
+#include <sstream>
 #include "message.h"
 #include "parsimu.h"
 #include "real.h"
@@ -9,7 +10,6 @@
 #include "sun.h"
 
 using namespace std;
-
 
 #define VERBOSE true
 
@@ -22,7 +22,6 @@ using namespace std;
 		" - elapsed: " << elapsed <<\
 		" - sigma: " << sigma << endl;\
 }
-
 
 Sun::Sun(const string &name) :
 	Atomic(name),
@@ -37,6 +36,18 @@ Sun::Sun(const string &name) :
 
 Model &Sun::initFunction()
 {
+
+	this->finRad.open("CSV_annual_daily_radiation.csv", ios::in);
+	this->finDeg.open("NOAA_Solar_Elevation_Day.csv", ios::in);
+
+	//no logre entender por que hay basura en la
+	//primera linea, pero la descarto
+	string line;
+	getline(this->finDeg, line);
+
+	string line1;
+	getline(this->finRad, line1);
+
 	holdIn(AtomicState::active, this->frequency_time);
 	return *this;
 }
@@ -64,9 +75,31 @@ Model &Sun::internalFunction(const InternalMessage &msg)
 
 Model &Sun::outputFunction(const CollectMessage &msg)
 {
+
 	auto random_int = this->dist(this->rng);
-//	Tuple<Real> out_value{Real(random_int), 0, 1};
-	sendOutput(msg.time(), radiation, Real(random_int));
-	sendOutput(msg.time(), degree, Real(random_int));
-	return *this ;
+
+	//todo el codigo de lectura del archivo esta aca para probar, tiene que ir en las transiciones externes o Internas
+	//donde se va a actualizar el valor actual de acuerdo a alguna condicion (no siempre van a cambiar ambos al mismo tiempo)
+	vector<string> row;
+	string rad, word, deg;
+
+	if(getline(this->finRad, rad)) {
+		row.clear();
+	  stringstream s(rad);
+	  while (std::getline(s, word, ',')) {
+			row.push_back(word);
+	  }
+
+		if(getline(this->finDeg, deg)) {
+
+			//row1 = mes, row2 = dia, row3 = valor en (kW-hr/m^2/day)
+			//deg es el angulo
+			sendOutput(msg.time(), radiation, Real(stoi(row[2])));
+			sendOutput(msg.time(), degree, Real(deg));
+			cout << "mes :" <<row[0] << " dia :" << row[1] << " radiacion :" << row[2] << endl;
+			cout << "angulo :" << deg << endl;
+			sendOutput(msg.time(), degree, Real(random_int));
+			return *this;
+		}
+	}
 }

@@ -1,5 +1,7 @@
-${OBJ_DIR}/partitionzone.o partitionzone.dep : partitionzone.cpp partitionzone.h zone.h \
- cellpos.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/ntupla.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h
+${OBJ_DIR}/partitionzone.o partitionzone.dep : partitionzone.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/cell/partitionzone.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/cell/zone.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/cell/cellpos.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/ntupla.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/except.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h

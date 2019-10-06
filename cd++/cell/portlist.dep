@@ -1,18 +1,16 @@
-${OBJ_DIR}/portlist.o portlist.dep : portlist.cpp portlist.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/undefd.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/tbool.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/model/port.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/modelid.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/model/pmodeladm.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/strutil.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/cell/cellpos.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/ntupla.h \
- cellpos.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h
+${OBJ_DIR}/portlist.o portlist.dep : portlist.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/cell/portlist.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/real.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/undefd.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/impresion.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/value.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/tbool.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/except.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/evaldeb.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/model/port.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/modelid.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/model/pmodeladm.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/strutil.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/cell/cellpos.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/ntupla.h

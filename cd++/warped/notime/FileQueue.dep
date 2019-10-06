@@ -1,3 +1,6 @@
-${OBJ_DIR}/FileQueue.o FileQueue.dep : FileQueue.cpp FileQueue.h FileData.h \
- DefaultVTime.h NoTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h
+${OBJ_DIR}/FileQueue.o FileQueue.dep : FileQueue.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/FileQueue.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/FileData.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h

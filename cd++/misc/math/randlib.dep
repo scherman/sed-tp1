@@ -1,1 +1,2 @@
-${OBJ_DIR}/randlib.o randlib.dep : randlib.c randlib.h
+${OBJ_DIR}/randlib.o randlib.dep : randlib.c \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/math/randlib.h

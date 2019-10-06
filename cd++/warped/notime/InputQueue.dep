@@ -1,4 +1,7 @@
-${OBJ_DIR}/InputQueue.o InputQueue.dep : InputQueue.cpp InputQueue.h SimulationTime.h \
- DefaultVTime.h NoTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
- BasicEvent.h
+${OBJ_DIR}/InputQueue.o InputQueue.dep : InputQueue.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/InputQueue.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/SimulationTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicEvent.h

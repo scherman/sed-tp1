@@ -1,5 +1,15 @@
-${OBJ_DIR}/NoTimeObject.o NoTimeObject.dep : NoTimeObject.cpp LogicalProcess.h BasicEvent.h \
- NoTime.h SimulationTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
- CommManager.h BasicNoTime.h ObjectRecord.h KernelMsgs.h InputQueue.h \
- Interactive.h NoTimeObject.h BasicState.h
+${OBJ_DIR}/NoTimeObject.o NoTimeObject.dep : NoTimeObject.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/LogicalProcess.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicEvent.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/SimulationTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/CommManager.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicNoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/ObjectRecord.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/KernelMsgs.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/InputQueue.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/Interactive.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTimeObject.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicState.h

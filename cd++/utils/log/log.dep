@@ -1,1 +1,2 @@
-${OBJ_DIR}/log.o log.dep : log.cpp log.h
+${OBJ_DIR}/log.o log.dep : log.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/log/log.h

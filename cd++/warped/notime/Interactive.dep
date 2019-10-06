@@ -1,4 +1,13 @@
-${OBJ_DIR}/Interactive.o Interactive.dep : Interactive.cpp DebugStream.h NoTimeObject.h \
- BasicNoTime.h ObjectRecord.h NoTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
- BasicState.h SimulationTime.h Interactive.h KernelMsgs.h BasicEvent.h
+${OBJ_DIR}/Interactive.o Interactive.dep : Interactive.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DebugStream.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTimeObject.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicNoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/ObjectRecord.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicState.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/SimulationTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/Interactive.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/KernelMsgs.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicEvent.h

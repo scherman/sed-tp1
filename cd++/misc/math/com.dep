@@ -1,1 +1,2 @@
-${OBJ_DIR}/com.o com.dep : com.c randlib.h
+${OBJ_DIR}/com.o com.dep : com.c \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/math/randlib.h

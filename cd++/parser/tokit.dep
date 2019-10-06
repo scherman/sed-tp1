@@ -1,1 +1,2 @@
-${OBJ_DIR}/tokit.o tokit.dep : tokit.cpp tokit.h
+${OBJ_DIR}/tokit.o tokit.dep : tokit.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/parser/tokit.h

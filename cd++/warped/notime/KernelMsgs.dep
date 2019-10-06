@@ -1,3 +1,7 @@
-${OBJ_DIR}/KernelMsgs.o KernelMsgs.dep : KernelMsgs.cpp KernelMsgs.h BasicEvent.h \
- NoTime.h SimulationTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h
+${OBJ_DIR}/KernelMsgs.o KernelMsgs.dep : KernelMsgs.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/KernelMsgs.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicEvent.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/SimulationTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h

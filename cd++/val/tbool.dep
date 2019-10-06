@@ -1,7 +1,9 @@
-${OBJ_DIR}/tbool.o tbool.dep : tbool.cpp tbool.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
- real.h undefd.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
- value.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h
+${OBJ_DIR}/tbool.o tbool.dep : tbool.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/tbool.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/except.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/real.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/undefd.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/impresion.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/value.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/evaldeb.h

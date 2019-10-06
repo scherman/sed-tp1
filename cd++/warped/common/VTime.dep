@@ -1,2 +1,3 @@
-${OBJ_DIR}/VTime.o VTime.dep : VTime.cpp VTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h
+${OBJ_DIR}/VTime.o VTime.dep : VTime.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h

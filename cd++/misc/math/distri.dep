@@ -1,12 +1,12 @@
-${OBJ_DIR}/distri.o distri.dep : distri.cpp distri.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/strutil.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/undefd.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/tbool.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h \
- randlib.h
+${OBJ_DIR}/distri.o distri.dep : distri.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/math/distri.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/except.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/stringp.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/strutil.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/real.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/undefd.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/impresion.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/value.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/val/tbool.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/utils/evaldeb.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/misc/math/randlib.h

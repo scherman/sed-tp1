@@ -1,6 +1,8 @@
-${OBJ_DIR}/atomicstate.o atomicstate.dep : atomicstate.cpp atomicstate.h modelstate.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/BasicState.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/SimulationTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/NoTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h
+${OBJ_DIR}/atomicstate.o atomicstate.dep : atomicstate.cpp \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/model/state/atomicstate.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/model/state/modelstate.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/BasicState.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/SimulationTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/notime/NoTime.h \
+  /Users/talonso/Public/SIEDVI/TP1/sed-tp1/cd++/warped/common/VTime.h
