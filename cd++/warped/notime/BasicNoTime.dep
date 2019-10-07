@@ -1,3 +1,0 @@
-${OBJ_DIR}/BasicNoTime.o BasicNoTime.dep : BasicNoTime.cpp BasicNoTime.h ObjectRecord.h \
- NoTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h

@@ -1,3 +1,0 @@
-${OBJ_DIR}/KernelMsgs.o KernelMsgs.dep : KernelMsgs.cpp KernelMsgs.h BasicEvent.h \
- NoTime.h SimulationTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h

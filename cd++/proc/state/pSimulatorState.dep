@@ -1,9 +1,0 @@
-${OBJ_DIR}/pSimulatorState.o pSimulatorState.dep : pSimulatorState.cpp pSimulatorState.h \
- pProcessorState.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/BasicState.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/SimulationTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/DefaultVTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/NoTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/model/state/atomicstate.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/model/state/modelstate.h

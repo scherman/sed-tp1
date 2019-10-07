@@ -1,7 +1,0 @@
-${OBJ_DIR}/value.o value.dep : value.cpp value.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/impresion.h \
- real.h undefd.h tbool.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/evaldeb.h \
- tuple_value.h

@@ -1,7 +1,0 @@
-${OBJ_DIR}/tbool.o tbool.dep : tbool.cpp tbool.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h real.h \
- undefd.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/impresion.h \
- value.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/evaldeb.h

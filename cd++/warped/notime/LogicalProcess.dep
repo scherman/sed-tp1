@@ -1,5 +1,0 @@
-${OBJ_DIR}/LogicalProcess.o LogicalProcess.dep : LogicalProcess.cpp LogicalProcess.h \
- BasicEvent.h NoTime.h SimulationTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h \
- CommManager.h BasicNoTime.h ObjectRecord.h KernelMsgs.h InputQueue.h \
- Interactive.h

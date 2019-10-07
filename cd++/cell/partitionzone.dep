@@ -1,5 +1,0 @@
-${OBJ_DIR}/partitionzone.o partitionzone.dep : partitionzone.cpp partitionzone.h zone.h \
- cellpos.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/ntupla.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h

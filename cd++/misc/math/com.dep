@@ -1,1 +1,0 @@
-${OBJ_DIR}/com.o com.dep : com.c randlib.h

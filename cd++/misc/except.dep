@@ -1,4 +1,0 @@
-${OBJ_DIR}/except.o except.dep : except.cpp except.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/macroexp.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h

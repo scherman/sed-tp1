@@ -1,2 +1,0 @@
-${OBJ_DIR}/realprec.o realprec.dep : realprec.cpp realprec.h value.h \
- /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/impresion.h
