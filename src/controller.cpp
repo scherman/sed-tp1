@@ -80,22 +80,28 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 
 Model &Controller::outputFunction(const CollectMessage &msg)
 {
-	float difference = abs(current_degree - _degree);
-	if (difference > tolerance) {
-		std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> current_degree := degree = " << _degree << std::endl;
-		current_degree = _degree;
-		sendOutput(msg.time(), rotation_val, Real(difference));	
-	} else {
-		std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> Don't move" << std::endl;;
-		sendOutput(msg.time(), rotation_val, Real(0));	
-	}
+
 	
 	if (_degree > 180 ) {
-		sendOutput(msg.time(), rays_val, Real(0));	
-	} else if (_degree == 0) {
-		sendOutput(msg.time(), rays_val, Real(abs(_radiation)));
-	}else {
-		sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree)));
+		std::cout << "[Controller] degree=" << _degree << " => Don't move, and null rays_val" << std::endl;;
+		sendOutput(msg.time(), rays_val, Real(0));	// a celda solar
+		sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
+	} else {
+		float difference = abs(current_degree - _degree);
+		if (difference > tolerance) {
+			std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> current_degree := degree = " << _degree << std::endl;
+			current_degree = _degree;
+			sendOutput(msg.time(), rotation_val, Real(difference));	 // a motor
+		} else {
+			std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> Don't move" << std::endl;;
+			sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
+		}
+
+		if (_degree == 0) { 
+			sendOutput(msg.time(), rays_val, Real(abs(_radiation))); // a celda solar
+		} else {
+			sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree))); // a celda solar
+		}
 	}
 	
 	return *this ;
