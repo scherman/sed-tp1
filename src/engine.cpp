@@ -38,8 +38,8 @@ Model &Engine::initFunction()
 	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "consumption_factor"));
 	param_str >> consumption_factor;
 	std::cout << "[Engine] Consumption factor: " << consumption_factor << std::endl;
-
-	holdIn(AtomicState::active, this->frequency_time);
+	passivate();
+	
 	return *this;
 }
 
@@ -52,7 +52,7 @@ Model &Engine::externalFunction(const ExternalMessage &msg)
 
 	if(msg.port() == rotation_val)
 	{
-		holdIn(AtomicState::active, this->frequency_time);
+		holdIn(AtomicState::active, VTime(0));
 	}
 
 	return *this;
@@ -64,7 +64,8 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	holdIn(AtomicState::active, this->frequency_time);
+	// holdIn(AtomicState::active, this->frequency_time);
+	passivate();
 
 	return *this ;
 }

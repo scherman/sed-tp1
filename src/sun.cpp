@@ -66,7 +66,7 @@ Model &Sun::outputFunction(const CollectMessage &msg)
 {
 	auto random_int = this->dist(this->rng);
 //	Tuple<Real> out_value{Real(random_int), 0, 1};
-	sendOutput(msg.time(), radiation, Real(random_int));
-	sendOutput(msg.time(), degree, Real(random_int));
+	sendOutput(msg.time(), radiation, Real(1));
+	sendOutput(msg.time(), degree, Real(2));
 	return *this ;
 }

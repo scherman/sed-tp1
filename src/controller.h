@@ -32,6 +32,9 @@ class Controller : public Atomic {
     Port &rotation_val;
     Port &rays_val;
 
+    // Parameters
+    float tolerance;
+
     // Internal
     float _radiation;
     float _degree;

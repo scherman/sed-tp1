@@ -39,7 +39,8 @@ Model &SolarCell::initFunction()
 	param_str >> conversion_factor;
 	std::cout << "[Solar Cell] Conversion factor: " << conversion_factor << std::endl;
 
-	holdIn(AtomicState::active, this->frequency_time);
+	// holdIn(AtomicState::active, this->frequency_time);
+	passivate();
 	return *this;
 }
 
@@ -51,8 +52,9 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 #endif
 
 	if(msg.port() == rays)
-	{
-		holdIn(AtomicState::active, this->frequency_time);
+	{	
+		// std::cout << "asd " << std::stof(AbstractValue::to_value_ptr(msg.value())) << std::endl;
+		holdIn(AtomicState::active, VTime(0));
 	}
 
 	return *this;
@@ -64,7 +66,7 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	holdIn(AtomicState::active, this->frequency_time);
+	passivate();
 
 	return *this ;
 }
@@ -72,6 +74,6 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 
 Model &SolarCell::outputFunction(const CollectMessage &msg)
 {
-	sendOutput(msg.time(), obtained_energy, Real(17));
+	sendOutput(msg.time(), obtained_energy, Real(conversion_factor * 10));
 	return *this ;
 }

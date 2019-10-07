@@ -37,7 +37,12 @@ Controller::Controller(const string &name) :
 
 Model &Controller::initFunction()
 {
-	holdIn(AtomicState::active, this->frequency_time);
+	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "tolerance"));
+	param_str >> tolerance;
+	std::cout << "[Controller] Tolerance: " << tolerance << std::endl;
+
+	// holdIn(AtomicState::active, this->frequency_time);
+	passivate();
 	return *this;
 }
 
@@ -51,13 +56,14 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 	if(msg.port() == radiation)
 	{
 		this->_radiation = 5;
-		holdIn(AtomicState::active, this->frequency_time);
+		holdIn(AtomicState::active, VTime(0));
 	}
 	else if(msg.port() == degree)
 	{
 		this->_degree = 5;
-		holdIn(AtomicState::active, this->frequency_time);
+		holdIn(AtomicState::active, VTime(0));
 	}
+	// holdIn(AtomicState::active, this->frequency_time);
 
 	return *this;
 }
@@ -68,7 +74,8 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	holdIn(AtomicState::active, this->frequency_time);
+	// holdIn(AtomicState::active, this->frequency_time);
+	passivate();
 
 	return *this ;
 }
