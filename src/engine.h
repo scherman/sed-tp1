@@ -35,6 +35,7 @@ class Engine : public Atomic {
 
     // Internal
     VTime frequency_time;
+    float rot_val;
 };
 
 #endif

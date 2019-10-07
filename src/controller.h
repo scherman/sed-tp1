@@ -38,7 +38,7 @@ class Controller : public Atomic {
     // Internal
     float _radiation;
     float _degree;
-
+    float current_degree;
     VTime frequency_time;
 };
 

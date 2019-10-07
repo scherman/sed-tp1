@@ -27,7 +27,7 @@ Sun::Sun(const string &name) :
 	Atomic(name),
 	radiation(addOutputPort("radiation")),
 	degree(addOutputPort("degree")),
-	frequency_time(0,0,1,0),
+	frequency_time(0,0,6,0),
 	dist(0,100),
 	rng(random_device()())
 {
@@ -94,12 +94,14 @@ Model &Sun::outputFunction(const CollectMessage &msg)
 
 			//row1 = mes, row2 = dia, row3 = valor en (kW-hr/m^2/day)
 			//deg es el angulo
-			sendOutput(msg.time(), radiation, Real(stoi(row[2])));
-			sendOutput(msg.time(), degree, Real(std::stof(deg)));
+			sendOutput(msg.time(), radiation, Real(stof(row[2])));
+			sendOutput(msg.time(), degree, Real(stof(deg)));
 			cout << "mes :" <<row[0] << " dia :" << row[1] << " radiacion :" << row[2] << endl;
 			cout << "angulo :" << deg << endl;
 			// sendOutput(msg.time(), degree, Real(random_int));
 			return *this;
 		}
+	} else {
+		passivate();
 	}
 }

@@ -41,7 +41,6 @@ Model &Controller::initFunction()
 	param_str >> tolerance;
 	std::cout << "[Controller] Tolerance: " << tolerance << std::endl;
 
-	// holdIn(AtomicState::active, this->frequency_time);
 	passivate();
 	return *this;
 }
@@ -55,15 +54,14 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 
 	if(msg.port() == radiation)
 	{
-		this->_radiation = 5;
+		this->_radiation = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
 	}
 	else if(msg.port() == degree)
 	{
-		this->_degree = 5;
+		this->_degree = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
 	}
-	// holdIn(AtomicState::active, this->frequency_time);
 
 	return *this;
 }
@@ -74,7 +72,6 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	// holdIn(AtomicState::active, this->frequency_time);
 	passivate();
 
 	return *this ;
@@ -83,7 +80,16 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 
 Model &Controller::outputFunction(const CollectMessage &msg)
 {
-	sendOutput(msg.time(), rotation_val, Real(3));
-	sendOutput(msg.time(), rays_val, Real(_radiation*_degree));
+	float difference = abs(current_degree - _degree);
+	if (difference > tolerance) {
+		std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> current_degree := degree = " << _degree << std::endl;
+		current_degree = _degree;
+		sendOutput(msg.time(), rotation_val, Real(difference));	
+	} else {
+		std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> Don't move" << std::endl;;
+		sendOutput(msg.time(), rotation_val, Real(0));	
+	}
+	
+	sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree)));
 	return *this ;
 }

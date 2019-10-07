@@ -39,7 +39,7 @@ Model &Engine::initFunction()
 	param_str >> consumption_factor;
 	std::cout << "[Engine] Consumption factor: " << consumption_factor << std::endl;
 	passivate();
-	
+
 	return *this;
 }
 
@@ -52,6 +52,7 @@ Model &Engine::externalFunction(const ExternalMessage &msg)
 
 	if(msg.port() == rotation_val)
 	{
+		rot_val = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
 	}
 
@@ -64,7 +65,6 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	// holdIn(AtomicState::active, this->frequency_time);
 	passivate();
 
 	return *this ;
@@ -73,7 +73,8 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 
 Model &Engine::outputFunction(const CollectMessage &msg)
 {
-	sendOutput(msg.time(), consumed_energy, Real(18));
+	std::cout << "[Engine] consumption_factor(" << consumption_factor << ") x rot_val(" << rot_val << ") = consumed_energy(" << consumption_factor * rot_val<< ")" << std::endl; 
+	sendOutput(msg.time(), consumed_energy, Real(consumption_factor * rot_val));
 	return *this ;
 }
 

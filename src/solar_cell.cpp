@@ -53,7 +53,7 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 
 	if(msg.port() == rays)
 	{	
-		// std::cout << "asd " << std::stof(AbstractValue::to_value_ptr(msg.value())) << std::endl;
+		rays_val = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
 	}
 
@@ -74,6 +74,7 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 
 Model &SolarCell::outputFunction(const CollectMessage &msg)
 {
-	sendOutput(msg.time(), obtained_energy, Real(conversion_factor * 10));
+	std::cout << "[SolarCell] conversion_factor("<< conversion_factor <<") x rays_val(" << rays_val << ") = obtained_energy(" << conversion_factor * rays_val << ")" << std::endl;
+	sendOutput(msg.time(), obtained_energy, Real(conversion_factor * rays_val));
 	return *this ;
 }

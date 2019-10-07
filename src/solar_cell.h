@@ -35,6 +35,7 @@ class SolarCell : public Atomic {
 
     // Internal
     VTime frequency_time;
+    float rays_val;
 };
 
 #endif
