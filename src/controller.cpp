@@ -90,6 +90,13 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 		sendOutput(msg.time(), rotation_val, Real(0));	
 	}
 	
-	sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree)));
+	if (_degree > 180 ) {
+		sendOutput(msg.time(), rays_val, Real(0));	
+	} else if (_degree == 0) {
+		sendOutput(msg.time(), rays_val, Real(abs(_radiation)));
+	}else {
+		sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree)));
+	}
+	
 	return *this ;
 }
