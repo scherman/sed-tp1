@@ -1,15 +1,15 @@
 ${OBJ_DIR}/logbuffer.o logbuffer.dep : logbuffer.cpp \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h \
  logparser.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/strutil.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/undefd.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/impresion.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/value.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/tbool.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/val/real.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/evaldeb.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/cell/cellpos.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/ntupla.h
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/strutil.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/val/real.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/val/undefd.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/impresion.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/val/value.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/val/tbool.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/val/real.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/evaldeb.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/cell/cellpos.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/ntupla.h

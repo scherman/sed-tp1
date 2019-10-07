@@ -1,5 +1,5 @@
 ${OBJ_DIR}/CommManager.o CommManager.dep : CommManager.cpp CommManager.h BasicNoTime.h \
  ObjectRecord.h NoTime.h DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h \
  KernelMsgs.h BasicEvent.h SimulationTime.h LogicalProcess.h InputQueue.h \
  Interactive.h DebugStream.h NoTimeObject.h BasicState.h

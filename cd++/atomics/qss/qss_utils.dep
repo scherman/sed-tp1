@@ -1,4 +1,4 @@
 ${OBJ_DIR}/qss_utils.o qss_utils.dep : qss_utils.cpp qss_utils.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/misc/except.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/utils/stringp.h
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/misc/except.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/utils/stringp.h

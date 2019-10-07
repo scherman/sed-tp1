@@ -1,6 +1,6 @@
 ${OBJ_DIR}/atomicstate.o atomicstate.dep : atomicstate.cpp atomicstate.h modelstate.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/BasicState.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/SimulationTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/DefaultVTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/notime/NoTime.h \
- /home/jscherman/Documents/simulacion/CDPP_ExtendedStates-codename-Santi/src/cd++/warped/common/VTime.h
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/BasicState.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/SimulationTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/DefaultVTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/notime/NoTime.h \
+ /home/jscherman/Documents/simulacion/sed-tp1/cd++/warped/common/VTime.h
