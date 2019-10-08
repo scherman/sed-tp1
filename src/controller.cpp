@@ -40,6 +40,7 @@ Model &Controller::initFunction()
 	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "tolerance"));
 	param_str >> tolerance;
 	std::cout << "[Controller] Tolerance: " << tolerance << std::endl;
+	this->current_degree = 0;
 
 	passivate();
 	return *this;
@@ -81,8 +82,8 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 Model &Controller::outputFunction(const CollectMessage &msg)
 {
 
-	
-	if (_degree > 180 ) {
+
+	if (_degree > 180 || _degree < 0 ) {
 		std::cout << "[Controller] degree=" << _degree << " => Don't move, and null rays_val" << std::endl;;
 		sendOutput(msg.time(), rays_val, Real(0));	// a celda solar
 		sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
@@ -97,12 +98,14 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 			sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
 		}
 
-		if (_degree == 0) { 
+		if (_degree == 0) {
 			sendOutput(msg.time(), rays_val, Real(abs(_radiation))); // a celda solar
 		} else {
+			//esta es la logica de como afecta el angulo de recepcion de la radiacion a la energia generada,
+			//aca vamos a tener que invstigar un poco mas para poner alguna ecuacion copada
 			sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree))); // a celda solar
 		}
 	}
-	
+
 	return *this ;
 }
