@@ -36,9 +36,8 @@ Sun::Sun(const string &name) :
 
 Model &Sun::initFunction()
 {
-
-	this->finRad.open("CSV_annual_daily_radiation.csv", ios::in);
-	this->finDeg.open("NOAA_Solar_Elevation_Day.csv", ios::in);
+	this->finRad.open("/home/jscherman/Documents/simulacion/sed-tp1/src/CSV_annual_daily_radiation.csv", ios::in);
+	this->finDeg.open("/home/jscherman/Documents/simulacion/sed-tp1/src/NOAA_Solar_Elevation_Day.csv", ios::in);
 
 	//no logre entender por que hay basura en la
 	//primera linea, pero la descarto

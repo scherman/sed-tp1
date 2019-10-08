@@ -31,4 +31,4 @@ consumption_factor : 0.1
 
 
 [controller]
-tolerance : 8
+tolerance : 4
