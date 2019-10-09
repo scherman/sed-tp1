@@ -33,6 +33,9 @@ class Sun : public Atomic {
     std::mt19937 rng;
     fstream finRad;
     fstream finDeg;
+    vector<string> row;
+    string rad, word, deg;
+    int anglesCount;
 };
 
 #endif

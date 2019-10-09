@@ -103,7 +103,36 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 		} else {
 			//esta es la logica de como afecta el angulo de recepcion de la radiacion a la energia generada,
 			//aca vamos a tener que invstigar un poco mas para poner alguna ecuacion copada
-			sendOutput(msg.time(), rays_val, Real(abs(_radiation/_degree))); // a celda solar
+
+			/*
+			E = A * r * H * PR
+			E = Energy(kWh)
+			A = TotalsolarpanelArea(m²)
+			r = solarpanelyield(%)
+			H = Annual average solar radiation on tilted panels (shadings not included)
+			PR = Performance ratio, coefficient for losses (range between 0.5 and 0.9, default value = 0.75)
+
+			r is the yield of the solar panel given by the ratio : electrical power (in kWp)
+			 of one solar paneldivided by the area of one panelExample : the solar panel yield
+			  of a PV module of 250 Wp with an area of 1.6 m² is 15.6%Be aware that this nominal
+				 ratio is given for standard test conditions (STC) : radiation=1000 W/m²,
+				 cell temperature=25 °C, Wind speed=1 m/s, AM=1.5 The unit of the nominal power
+				 of thephotovoltaic panel in these conditions is called "Watt-peak"
+				 (Wp or kWp=1000 Wp orMWp=1000000 Wp).
+			 */
+			 int altura = 10;
+			 int ancho = 6;
+
+			//eliminamos PR que es un factor de la red que de momento no nos interesa analizar
+			//tomamos r 0.5 como valor inicial, puede ser un parametro de testeo
+			//el lado del area visible del panel que se modifica con el angulo del sol
+			// va a ser el coseno del valor absoluto del angulo de elevacion - 90º
+			// multiplicado por el lado real del panel
+
+			float anchoIrradiado = cos(abs(this->_degree - 90)) * ancho;
+			float area = anchoIrradiado * altura;
+			float energia = area * 0.5 * this->_radiation;
+			sendOutput(msg.time(), rays_val, Real(energia)); // a celda solar
 		}
 	}
 
