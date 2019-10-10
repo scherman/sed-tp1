@@ -5,11 +5,13 @@
 #include "parsimu.h"
 #include "real.h"
 #include "tuple_value.h"
+#include "math.h"
 
 #include "controller.h"
 
 using namespace std;
 
+#define _USE_MATH_DEFINES
 
 #define VERBOSE true
 
@@ -97,10 +99,6 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 			std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> Don't move" << std::endl;;
 			sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
 		}
-
-		if (_degree == 0) {
-			sendOutput(msg.time(), rays_val, Real(abs(_radiation))); // a celda solar
-		} else {
 			//esta es la logica de como afecta el angulo de recepcion de la radiacion a la energia generada,
 			//aca vamos a tener que invstigar un poco mas para poner alguna ecuacion copada
 
@@ -129,12 +127,14 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 			// va a ser el coseno del valor absoluto del angulo de elevacion - 90º
 			// multiplicado por el lado real del panel
 
-			float anchoIrradiado = cos(abs(this->_degree - 90)) * ancho;
+			float anchoIrradiado = cos((abs(90-this->_degree)) * M_PI / 180) * ancho;
+		//	cout <<"ancho final " << anchoIrradiado << endl;
+			//cout << "del angulo " << _degree << endl;
+			//cout << "no radian " << (90 - _degree) << " radian " << ((90 - this->_degree) * M_PI / 180) << " abs " << ((abs(90 - this->_degree)) * M_PI / 180) << " con coseno " << cos((abs(90-this->_degree)) * M_PI / 180) << endl;
 			float area = anchoIrradiado * altura;
 			float energia = area * 0.5 * this->_radiation;
 			sendOutput(msg.time(), rays_val, Real(energia)); // a celda solar
 		}
-	}
 
 	return *this ;
 }

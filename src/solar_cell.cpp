@@ -52,7 +52,7 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 #endif
 
 	if(msg.port() == rays)
-	{	
+	{
 		rays_val = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
 	}
