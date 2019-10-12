@@ -27,10 +27,13 @@ class Controller : public Atomic {
     // Input ports
     const Port &radiation_p;
     const Port &degree_p;
+    const Port &obtained_energy_p;
+    const Port &consumed_energy_p;
 
     // Output ports
     Port &rotation_p;
     Port &received_energy_p;
+    Port &battery_p;
 
     // Parameters
     float tolerance;
@@ -38,15 +41,20 @@ class Controller : public Atomic {
     // Internal
     float radiation;
     float degree;
-    float current_degree;
-    
     bool received_radiation;
     bool received_degree;
 
     float rotation;
     float received_energy;
-    
-    VTime frequency_time;
+    double battery;
+    float obtained_energy;
+    float consumed_energy;
+
+    float current_degree;
+
+    bool battery_update;
+
+
 };
 
 #endif

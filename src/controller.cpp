@@ -25,13 +25,21 @@ using namespace std;
 		" - sigma: " << sigma << endl;\
 }
 
+#define MIN_BATTERY_TO_MOVE 10
+
 
 Controller::Controller(const string &name) :
 	Atomic(name),
+	// input proveniente del sol
 	radiation_p(addInputPort("radiation")),
 	degree_p(addInputPort("degree")),
+	// input proveniente del motor y celda solar (para actualizar bateria) 
+	obtained_energy_p(addInputPort("obtained_energy")),
+	consumed_energy_p(addInputPort("consumed_energy")),
+	
 	rotation_p(addOutputPort("rotation")),
-	received_energy_p(addOutputPort("received_energy"))
+	received_energy_p(addOutputPort("received_energy")),
+	battery_p(addOutputPort("battery"))
 {
 }
 
@@ -48,6 +56,10 @@ Model &Controller::initFunction()
 	this->received_degree = false;
 	this->rotation = 0;
 	this->received_energy = 0;
+	this->battery = 0;
+	this->battery_update = false;
+	this->obtained_energy = 0;
+	this->consumed_energy = 0;
 
 	passivate();
 	return *this;
@@ -66,8 +78,16 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 	} else if(msg.port() == degree_p) {
 		this->degree = std::stof(msg.value()->asString());
 		received_degree = true;
+	} else if(msg.port() == obtained_energy_p) {
+		this->battery_update = true;
+		obtained_energy = std::stof(msg.value()->asString());
+		battery += obtained_energy;
+	} else if(msg.port() == consumed_energy_p) {
+		this->battery_update = true;
+		consumed_energy = std::stof(msg.value()->asString());
+		battery -= consumed_energy; 
 	}
-	holdIn(AtomicState::active, VTime(0));	
+	holdIn(AtomicState::active, VTime(0));
 
 	if (received_radiation && received_degree) {
 		received_radiation = false;
@@ -111,7 +131,7 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 			
 
 			float difference = abs(current_degree - degree);
-			if (difference > tolerance) {
+			if (difference > tolerance && battery > MIN_BATTERY_TO_MOVE) {
 				current_degree = degree;
 				rotation = difference;
 			} 
@@ -129,6 +149,9 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 #endif
 	this->rotation = 0;
 	this->received_energy = 0;
+	this->battery_update = false;
+	this->obtained_energy = 0;
+	this->consumed_energy = 0;
 	passivate();
 
 	return *this ;
@@ -136,14 +159,18 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 
 
 Model &Controller::outputFunction(const CollectMessage &msg) {
+	if (battery_update) {
+		std::cout << "[Controller] obtained_energy = " << obtained_energy << ", consumed_energy = " << consumed_energy << " => battery := " << battery << std::endl; 
+		sendOutput(msg.time(), battery_p, Real(battery)); // a panel solar
+	} else {
+		std::cout << "[Controller] current_degree = " << current_degree << ", degree =" << degree << std::endl;
 
-	std::cout << "[Controller] current_degree = " << current_degree << ", degree =" << degree << std::endl;
+		std::cout << "[Controller] rotation = " <<  rotation << " => current_degree :=" << current_degree <<  std::endl;
+		sendOutput(msg.time(), rotation_p, Real(rotation));	 // a motor
 
-	std::cout << "[Controller] rotation = " <<  rotation << " => current_degree :=" << current_degree <<  std::endl;
-	sendOutput(msg.time(), rotation_p, Real(rotation));	 // a motor
-
-	std::cout << "[Controller] received_energy := " <<  received_energy << std::endl;
-	sendOutput(msg.time(), received_energy_p, Real(received_energy)); // a celda solar
+		std::cout << "[Controller] received_energy := " <<  received_energy << std::endl;
+		sendOutput(msg.time(), received_energy_p, Real(received_energy)); // a celda solar	
+	}
 
 	return *this ;
 }
