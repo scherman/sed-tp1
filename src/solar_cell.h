@@ -25,18 +25,17 @@ class SolarCell : public Atomic {
   private:
 
     // Input ports
-    const Port &rays;
+    const Port &received_energy_p;
     
     // Output ports
-    Port &obtained_energy;
+    Port &obtained_energy_p;
 
     // Parameters
     float conversion_factor;
 
     // Internal
-    VTime frequency_time;
-    float rays_val;
-    float _obtained_energy;
+    float received_energy;
+    float obtained_energy;
 };
 
 #endif

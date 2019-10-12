@@ -99,7 +99,7 @@ Model &Sun::outputFunction(const CollectMessage &msg)
 {
 	string month = row[0];
 	string day = row[1];
-	std::cout << "[Sun] " << month << "/" << day << " - emiting with degree " << deg << " and radiation " <<  (stof(row[2])/10) << std::endl;
+	std::cout << "[Sun] " << month << "/" << day << " - emiting with degree := " << deg << ", radiation := " <<  (stof(row[2])/10) << std::endl;
 	
 	// auto random_int = this->dist(this->rng);
 	sendOutput(msg.time(), radiation, Real(stof(row[2])));

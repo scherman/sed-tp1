@@ -26,8 +26,8 @@ using namespace std;
 
 SolarCell::SolarCell(const string &name) :
 	Atomic(name),
-	rays(addInputPort("rays_val")),
-	obtained_energy(addOutputPort("obtained_energy"))
+	received_energy_p(addInputPort("received_energy")),
+	obtained_energy_p(addOutputPort("obtained_energy"))
 {
 }
 
@@ -38,8 +38,9 @@ Model &SolarCell::initFunction()
 	param_str >> conversion_factor;
 	std::cout << "[Solar Cell] params := {conversion_factor: " << conversion_factor << "}" << std::endl;
 
-	_obtained_energy = 0;
-
+	obtained_energy = 0;
+	received_energy = 0;
+    
 	passivate();
 	return *this;
 }
@@ -51,11 +52,11 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 	PRINT_TIMES("dext");
 #endif
 
-	if(msg.port() == rays)
+	if(msg.port() == received_energy_p)
 	{
-		rays_val = std::stof(msg.value()->asString());
+		received_energy = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
-		_obtained_energy = conversion_factor * rays_val;
+		obtained_energy = conversion_factor * received_energy;
 	}
 
 	return *this;
@@ -67,7 +68,10 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
-	_obtained_energy = 0;
+
+	obtained_energy = 0;
+	received_energy = 0;
+
 	passivate();
 
 	return *this ;
@@ -76,7 +80,7 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 
 Model &SolarCell::outputFunction(const CollectMessage &msg)
 {
-	std::cout << "[SolarCell] rays_val=" << rays_val << " => obtained_energy := " << conversion_factor * rays_val << std::endl;
-	sendOutput(msg.time(), obtained_energy, Real(_obtained_energy));
+	std::cout << "[SolarCell] received_energy = " << received_energy << " => obtained_energy := " << obtained_energy << std::endl;
+	sendOutput(msg.time(), obtained_energy_p, Real(obtained_energy));
 	return *this ;
 }

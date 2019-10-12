@@ -25,26 +25,26 @@ class Controller : public Atomic {
   private:
 
     // Input ports
-    const Port &radiation;
-    const Port &degree;
+    const Port &radiation_p;
+    const Port &degree_p;
 
     // Output ports
-    Port &rotation_val;
-    Port &rays_val;
+    Port &rotation_p;
+    Port &received_energy_p;
 
     // Parameters
     float tolerance;
 
     // Internal
-    float _radiation;
-    float _degree;
+    float radiation;
+    float degree;
     float current_degree;
     
     bool received_radiation;
     bool received_degree;
 
-    float _rotation;
-    float _obtained_energy;
+    float rotation;
+    float received_energy;
     
     VTime frequency_time;
 };

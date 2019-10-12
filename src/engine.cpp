@@ -79,7 +79,7 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 
 Model &Engine::outputFunction(const CollectMessage &msg)
 {
-	std::cout << "[Engine] rotation=" << rotation << " => consumed_energy := " << consumed_energy << std::endl; 
+	std::cout << "[Engine] rotation = " << rotation << " => consumed_energy := " << consumed_energy << std::endl; 
 	sendOutput(msg.time(), consumed_energy_p, Real(consumed_energy));
 	return *this ;
 }
