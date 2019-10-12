@@ -26,9 +26,8 @@ using namespace std;
 
 Engine::Engine(const string &name) :
 	Atomic(name),
-	rotation_val(addInputPort("rotation_val")),
-	consumed_energy(addOutputPort("consumed_energy")),
-	frequency_time(0,0,1,0)
+	rotation_p(addInputPort("rotation")),
+	consumed_energy_p(addOutputPort("consumed_energy"))
 {
 }
 
@@ -37,7 +36,11 @@ Model &Engine::initFunction()
 {
 	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "consumption_factor"));
 	param_str >> consumption_factor;
-	std::cout << "[Engine] Consumption factor: " << consumption_factor << std::endl;
+	std::cout << "[Engine] params := {consumption_factor: " << consumption_factor << "}" << std::endl;
+
+	consumed_energy = 0;
+	rotation = 0;
+
 	passivate();
 
 	return *this;
@@ -50,10 +53,11 @@ Model &Engine::externalFunction(const ExternalMessage &msg)
 	PRINT_TIMES("dext");
 #endif
 
-	if(msg.port() == rotation_val)
+	if(msg.port() == rotation_p)
 	{
-		rot_val = std::stof(msg.value()->asString());
+		rotation = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
+		consumed_energy = consumption_factor * rotation;
 	}
 
 	return *this;
@@ -65,6 +69,8 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
+	consumed_energy = 0;
+	rotation = 0;
 	passivate();
 
 	return *this ;
@@ -73,8 +79,8 @@ Model &Engine::internalFunction(const InternalMessage &msg)
 
 Model &Engine::outputFunction(const CollectMessage &msg)
 {
-	std::cout << "[Engine] consumption_factor(" << consumption_factor << ") x rot_val(" << rot_val << ") = consumed_energy(" << consumption_factor * rot_val<< ")" << std::endl; 
-	sendOutput(msg.time(), consumed_energy, Real(consumption_factor * rot_val));
+	std::cout << "[Engine] rotation=" << rotation << " => consumed_energy := " << consumed_energy << std::endl; 
+	sendOutput(msg.time(), consumed_energy_p, Real(consumed_energy));
 	return *this ;
 }
 

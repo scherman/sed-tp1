@@ -1,0 +1,29 @@
+${OBJ_DIR}/sun.o sun.dep : sun.cpp ../cd++/msg/message.h ../cd++/model/model.h \
+ ../cd++/misc/machineid.h ../cd++/model/port.h ../cd++/misc/modelid.h \
+ ../cd++/model/pmodeladm.h ../cd++/utils/strutil.h ../cd++/val/real.h \
+ ../cd++/val/undefd.h ../cd++/utils/impresion.h ../cd++/val/value.h \
+ ../cd++/val/tbool.h ../cd++/misc/except.h ../cd++/utils/stringp.h \
+ ../cd++/val/real.h ../cd++/utils/evaldeb.h ../cd++/cell/cellpos.h \
+ ../cd++/utils/ntupla.h ../cd++/warped/common/VTime.h \
+ ../cd++/cell/portlist.h ../cd++/model/port.h ../cd++/cell/cellpos.h \
+ ../cd++/val/value.h ../cd++/proc/pprocadm.h ../cd++/proc/pprocess.h \
+ ../cd++/warped/notime/SimulationObj.h \
+ ../cd++/warped/notime/NoTimeObject.h ../cd++/warped/notime/BasicNoTime.h \
+ ../cd++/warped/notime/ObjectRecord.h ../cd++/warped/notime/NoTime.h \
+ ../cd++/warped/notime/DefaultVTime.h ../cd++/warped/notime/BasicState.h \
+ ../cd++/warped/notime/SimulationTime.h \
+ ../cd++/warped/notime/Interactive.h ../cd++/proc/state/pProcessorState.h \
+ ../cd++/warped/notime/BasicState.h ../cd++/msg/msgbag.h \
+ ../cd++/model/state/modelstate.h ../cd++/sim/parsimu.h \
+ ../cd++/proc/proot.h ../cd++/evt/event.h ../cd++/evt/eventlist.h \
+ ../cd++/evt/event.h ../cd++/model/prootmodel.h ../cd++/model/model.h \
+ ../cd++/proc/state/pRootState.h ../cd++/proc/state/pProcessorState.h \
+ ../cd++/proc/pprocadm.h ../cd++/parser/ini.h ../cd++/parser/tokit.h \
+ ../cd++/parser/pini.h ../cd++/sim/loader/loader.h \
+ ../cd++/cell/ltranadm.h ../cd++/cell/portlist.h ../cd++/utils/log/log.h \
+ ../cd++/warped/notime/LogicalProcess.h \
+ ../cd++/warped/notime/BasicEvent.h ../cd++/warped/notime/CommManager.h \
+ ../cd++/warped/notime/KernelMsgs.h ../cd++/warped/notime/InputQueue.h \
+ ../cd++/proc/process.h ../cd++/proc/pprocess.h ../cd++/val/tuple_value.h \
+ sun.h ../cd++/model/atomic.h ../cd++/model/state/atomicstate.h \
+ ../cd++/model/state/modelstate.h ../cd++/proc/state/pSimulatorState.h

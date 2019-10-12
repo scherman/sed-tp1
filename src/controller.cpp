@@ -41,9 +41,12 @@ Model &Controller::initFunction()
 {
 	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "tolerance"));
 	param_str >> tolerance;
-	std::cout << "[Controller] Tolerance: " << tolerance << std::endl;
+	std::cout << "[Controller] params := {tolerance: " << tolerance << "}" << std::endl;
 	this->current_degree = 0;
-
+	this->received_radiation = false;
+	this->received_degree = false;
+	this->_rotation = 0;
+	this->_obtained_energy = 0;
 	passivate();
 	return *this;
 }
@@ -55,50 +58,20 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 	PRINT_TIMES("dext");
 #endif
 
-	if(msg.port() == radiation)
-	{
+	if(msg.port() == radiation) {
 		this->_radiation = std::stof(msg.value()->asString());
-		holdIn(AtomicState::active, VTime(0));
-	}
-	else if(msg.port() == degree)
-	{
+		received_radiation = true;
+	} else if(msg.port() == degree) {
 		this->_degree = std::stof(msg.value()->asString());
-		holdIn(AtomicState::active, VTime(0));
+		received_degree = true;
 	}
+	holdIn(AtomicState::active, VTime(0));	
 
-	return *this;
-}
+	if (received_radiation && received_degree) {
+		received_radiation = false;
+		received_degree = false;
 
-
-Model &Controller::internalFunction(const InternalMessage &msg)
-{
-#if VERBOSE
-	PRINT_TIMES("dint");
-#endif
-	passivate();
-
-	return *this ;
-}
-
-
-Model &Controller::outputFunction(const CollectMessage &msg)
-{
-
-
-	if (_degree > 180 || _degree < 0 ) {
-		std::cout << "[Controller] degree=" << _degree << " => Don't move, and null rays_val" << std::endl;;
-		sendOutput(msg.time(), rays_val, Real(0));	// a celda solar
-		sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
-	} else {
-		float difference = abs(current_degree - _degree);
-		if (difference > tolerance) {
-			std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> current_degree := degree = " << _degree << std::endl;
-			current_degree = _degree;
-			sendOutput(msg.time(), rotation_val, Real(difference));	 // a motor
-		} else {
-			std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << ", tolerance=" << tolerance << "=> Don't move" << std::endl;;
-			sendOutput(msg.time(), rotation_val, Real(0));	 // a motor
-		}
+		if ( 0 <= _degree && _degree <= 180 ) {
 			//esta es la logica de como afecta el angulo de recepcion de la radiacion a la energia generada,
 			//aca vamos a tener que invstigar un poco mas para poner alguna ecuacion copada
 
@@ -132,9 +105,43 @@ Model &Controller::outputFunction(const CollectMessage &msg)
 			//cout << "del angulo " << _degree << endl;
 			//cout << "no radian " << (90 - _degree) << " radian " << ((90 - this->_degree) * M_PI / 180) << " abs " << ((abs(90 - this->_degree)) * M_PI / 180) << " con coseno " << cos((abs(90-this->_degree)) * M_PI / 180) << endl;
 			float area = anchoIrradiado * altura;
-			float energia = area * 0.5 * this->_radiation;
-			sendOutput(msg.time(), rays_val, Real(energia)); // a celda solar
+			_obtained_energy = area * 0.5 * this->_radiation;
+			
+
+			float difference = abs(current_degree - _degree);
+			if (difference > tolerance) {
+				current_degree = _degree;
+				_rotation = difference;
+			} 
 		}
+	} 
+
+	return *this;
+}
+
+
+Model &Controller::internalFunction(const InternalMessage &msg)
+{
+#if VERBOSE
+	PRINT_TIMES("dint");
+#endif
+	this->_rotation = 0;
+	this->_obtained_energy = 0;
+	passivate();
+
+	return *this ;
+}
+
+
+Model &Controller::outputFunction(const CollectMessage &msg) {
+
+	std::cout << "[Controller] current_degree=" << current_degree << ", degree=" << _degree << std::endl;
+
+	std::cout << "[Controller] rotation= " <<  _rotation << " => current_degree :=" << current_degree <<  std::endl;
+	sendOutput(msg.time(), rotation_val, Real(_rotation));	 // a motor
+
+	std::cout << "[Controller] obtained_energy := " <<  _obtained_energy << std::endl;
+	sendOutput(msg.time(), rays_val, Real(_obtained_energy)); // a celda solar
 
 	return *this ;
 }

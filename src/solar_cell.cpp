@@ -27,8 +27,7 @@ using namespace std;
 SolarCell::SolarCell(const string &name) :
 	Atomic(name),
 	rays(addInputPort("rays_val")),
-	obtained_energy(addOutputPort("obtained_energy")),
-	frequency_time(0,0,1,0)
+	obtained_energy(addOutputPort("obtained_energy"))
 {
 }
 
@@ -37,9 +36,10 @@ Model &SolarCell::initFunction()
 {
 	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "conversion_factor"));
 	param_str >> conversion_factor;
-	std::cout << "[Solar Cell] Conversion factor: " << conversion_factor << std::endl;
+	std::cout << "[Solar Cell] params := {conversion_factor: " << conversion_factor << "}" << std::endl;
 
-	// holdIn(AtomicState::active, this->frequency_time);
+	_obtained_energy = 0;
+
 	passivate();
 	return *this;
 }
@@ -55,6 +55,7 @@ Model &SolarCell::externalFunction(const ExternalMessage &msg)
 	{
 		rays_val = std::stof(msg.value()->asString());
 		holdIn(AtomicState::active, VTime(0));
+		_obtained_energy = conversion_factor * rays_val;
 	}
 
 	return *this;
@@ -66,6 +67,7 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 #if VERBOSE
 	PRINT_TIMES("dint");
 #endif
+	_obtained_energy = 0;
 	passivate();
 
 	return *this ;
@@ -74,7 +76,7 @@ Model &SolarCell::internalFunction(const InternalMessage &msg)
 
 Model &SolarCell::outputFunction(const CollectMessage &msg)
 {
-	std::cout << "[SolarCell] conversion_factor("<< conversion_factor <<") x rays_val(" << rays_val << ") = obtained_energy(" << conversion_factor * rays_val << ")" << std::endl;
-	sendOutput(msg.time(), obtained_energy, Real(conversion_factor * rays_val));
+	std::cout << "[SolarCell] rays_val=" << rays_val << " => obtained_energy := " << conversion_factor * rays_val << std::endl;
+	sendOutput(msg.time(), obtained_energy, Real(_obtained_energy));
 	return *this ;
 }

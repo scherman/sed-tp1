@@ -39,8 +39,10 @@ Model &Sun::initFunction()
 //	this->finRad.open("/home/jscherman/Documents/simulacion/sed-tp1/src/CSV_annual_daily_radiation.csv", ios::in);
 	//this->finDeg.open("/home/jscherman/Documents/simulacion/sed-tp1/src/NOAA_Solar_Elevation_Day.csv", ios::in);
 
-	this->finRad.open("/users/talonso/Public/SIEDVI/TP1/sed-tp1/src/CSV_annual_daily_radiation.csv", ios::in);
-	this->finDeg.open("/users/talonso/Public/SIEDVI/TP1/sed-tp1/src/NOAA_Solar_Elevation_Day.csv", ios::in);
+	std::cout << "Opening data files..." << std::endl;
+	this->finRad.open("/home/jscherman/Documents/simulacion/sed-tp1/src/CSV_annual_daily_radiation.csv", ios::in);
+	this->finDeg.open("/home/jscherman/Documents/simulacion/sed-tp1/src/NOAA_Solar_Elevation_Day.csv", ios::in);
+	std::cout << "Data files opened successfully" << std::endl;
 
 	getline(this->finDeg, this->deg);
 
@@ -95,11 +97,15 @@ Model &Sun::internalFunction(const InternalMessage &msg)
 
 Model &Sun::outputFunction(const CollectMessage &msg)
 {
-	auto random_int = this->dist(this->rng);
+	string month = row[0];
+	string day = row[1];
+	std::cout << "[Sun] " << month << "/" << day << " - emiting with degree " << deg << " and radiation " <<  (stof(row[2])/10) << std::endl;
+	
+	// auto random_int = this->dist(this->rng);
 	sendOutput(msg.time(), radiation, Real(stof(row[2])));
 	sendOutput(msg.time(), degree, Real(stof(deg)));
-	cout << "mes :" <<row[0] << " dia :" << row[1] << " radiacion :" << (stof(row[2])/10) << endl;
-	cout << "angulo :" << deg << endl;
+	// cout << "mes :" <<row[0] << " dia :" << row[1] << " radiacion :" <<  << endl;
+	// cout << "angulo :" << deg << endl;
 	// sendOutput(msg.time(), degree, Real(random_int));
 	return *this;
 }

@@ -39,6 +39,13 @@ class Controller : public Atomic {
     float _radiation;
     float _degree;
     float current_degree;
+    
+    bool received_radiation;
+    bool received_degree;
+
+    float _rotation;
+    float _obtained_energy;
+    
     VTime frequency_time;
 };
 
