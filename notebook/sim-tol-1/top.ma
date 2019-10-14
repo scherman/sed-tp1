@@ -27,7 +27,7 @@ link : consumed_energy@engine consumed_energy
 link : consumed_energy@engine consumed_energy@controller
 
 [solar_cell]
-conversion_factor : 0.7
+conversion_factor : 0.6
 
 [engine]
 consumption_factor : 0.1

@@ -40,7 +40,7 @@ Model &SolarCell::initFunction()
 
 	obtained_energy = 0;
 	received_energy = 0;
-    
+
 	passivate();
 	return *this;
 }
