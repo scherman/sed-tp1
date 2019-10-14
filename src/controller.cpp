@@ -25,9 +25,6 @@ using namespace std;
 		" - sigma: " << sigma << endl;\
 }
 
-#define MIN_BATTERY_TO_MOVE 10
-
-
 Controller::Controller(const string &name) :
 	Atomic(name),
 	// input proveniente del sol
@@ -46,9 +43,11 @@ Controller::Controller(const string &name) :
 
 Model &Controller::initFunction()
 {
-	std::stringstream param_str(ParallelMainSimulator::Instance().getParameter(this->description(), "tolerance"));
-	param_str >> tolerance;
-	std::cout << "[Controller] params := {tolerance: " << tolerance << "}" << std::endl;
+	std::stringstream param_str1(ParallelMainSimulator::Instance().getParameter(this->description(), "tolerance"));
+	param_str1 >> tolerance;
+	std::stringstream param_str2(ParallelMainSimulator::Instance().getParameter(this->description(), "min_energy_to_rotate"));
+	param_str2 >> min_battery_to_move;
+	std::cout << "[Controller] params := {tolerance: " << tolerance << ", min_energy_to_rotate: " << min_battery_to_move << "}" << std::endl;
 	this->radiation = 0;
 	this->degree = 0;
 	this->current_degree = 0;
@@ -131,7 +130,7 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 			
 
 			float difference = abs(current_degree - degree);
-			if (difference > tolerance && battery > MIN_BATTERY_TO_MOVE) {
+			if (difference > tolerance && battery > min_battery_to_move) {
 				current_degree = degree;
 				rotation = difference;
 			} 

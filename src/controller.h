@@ -37,6 +37,7 @@ class Controller : public Atomic {
 
     // Parameters
     float tolerance;
+    double min_battery_to_move;
 
     // Internal
     float radiation;
