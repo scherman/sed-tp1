@@ -1,8 +1,8 @@
 [logfiles]
-ParallelRoot : logs/logs00 
-top : logs/logs06 
-sun : logs/logs01 
-solar_panel : logs/logs05 
-controller : logs/logs02 
-solar_cell : logs/logs03 
 engine : logs/logs04 
+solar_cell : logs/logs03 
+controller : logs/logs02 
+solar_panel : logs/logs05 
+sun : logs/logs01 
+top : logs/logs06 
+ParallelRoot : logs/logs00 

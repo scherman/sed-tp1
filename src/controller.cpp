@@ -30,10 +30,10 @@ Controller::Controller(const string &name) :
 	// input proveniente del sol
 	radiation_p(addInputPort("radiation")),
 	degree_p(addInputPort("degree")),
-	// input proveniente del motor y celda solar (para actualizar bateria) 
+	// input proveniente del motor y celda solar (para actualizar bateria)
 	obtained_energy_p(addInputPort("obtained_energy")),
 	consumed_energy_p(addInputPort("consumed_energy")),
-	
+
 	rotation_p(addOutputPort("rotation")),
 	received_energy_p(addOutputPort("received_energy")),
 	battery_p(addOutputPort("battery"))
@@ -84,7 +84,7 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 	} else if(msg.port() == consumed_energy_p) {
 		this->battery_update = true;
 		consumed_energy = std::stof(msg.value()->asString());
-		battery -= consumed_energy; 
+		battery -= consumed_energy;
 	}
 	holdIn(AtomicState::active, VTime(0));
 
@@ -121,21 +121,20 @@ Model &Controller::externalFunction(const ExternalMessage &msg)
 			// va a ser el coseno del valor absoluto del angulo de elevacion - 90º
 			// multiplicado por el lado real del panel
 
-			float anchoIrradiado = cos((abs(90-this->degree)) * M_PI / 180) * ancho;
+			float anchoIrradiado = cos((abs(degree - current_degree)) * M_PI / 180) * ancho;
 			//	cout <<"ancho final " << anchoIrradiado << endl;
 			//cout << "del angulo " << degree << endl;
 			//cout << "no radian " << (90 - degree) << " radian " << ((90 - this->degree) * M_PI / 180) << " abs " << ((abs(90 - this->degree)) * M_PI / 180) << " con coseno " << cos((abs(90-this->degree)) * M_PI / 180) << endl;
 			float area = anchoIrradiado * altura;
 			received_energy = area * 0.5 * this->radiation;
-			
 
 			float difference = abs(current_degree - degree);
 			if (difference > tolerance && battery > min_battery_to_move) {
 				current_degree = degree;
 				rotation = difference;
-			} 
+			}
 		}
-	} 
+	}
 
 	return *this;
 }
@@ -159,7 +158,7 @@ Model &Controller::internalFunction(const InternalMessage &msg)
 
 Model &Controller::outputFunction(const CollectMessage &msg) {
 	if (battery_update) {
-		std::cout << "[Controller] obtained_energy = " << obtained_energy << ", consumed_energy = " << consumed_energy << " => battery := " << battery << std::endl; 
+		std::cout << "[Controller] obtained_energy = " << obtained_energy << ", consumed_energy = " << consumed_energy << " => battery := " << battery << std::endl;
 		sendOutput(msg.time(), battery_p, Real(battery)); // a panel solar
 	} else {
 		std::cout << "[Controller] current_degree = " << current_degree << ", degree =" << degree << std::endl;
@@ -168,7 +167,7 @@ Model &Controller::outputFunction(const CollectMessage &msg) {
 		sendOutput(msg.time(), rotation_p, Real(rotation));	 // a motor
 
 		std::cout << "[Controller] received_energy := " <<  received_energy << std::endl;
-		sendOutput(msg.time(), received_energy_p, Real(received_energy)); // a celda solar	
+		sendOutput(msg.time(), received_energy_p, Real(received_energy)); // a celda solar
 	}
 
 	return *this ;
