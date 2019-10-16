@@ -27,11 +27,11 @@ link : consumed_energy@engine consumed_energy
 link : consumed_energy@engine consumed_energy@controller
 
 [solar_cell]
-conversion_factor : 0.6
+conversion_factor : 0.4
 
 [engine]
-consumption_factor : 0.1
+consumption_factor : 25
 
 [controller]
-tolerance : 2
+tolerance : 5
 min_energy_to_rotate: 10
