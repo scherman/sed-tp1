@@ -1,0 +1,7 @@
+0 / L / I / 00:00:00:000:0 / top(17) / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / controller(02) / ... / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / solar_cell(03) / ... / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / engine(04) / ... / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / controller(05) / ... / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / solar_cell(06) / ... / solar_panel(08)
+0 / L / D / 00:00:00:000:0 / engine(07) / ... / solar_panel(08)
