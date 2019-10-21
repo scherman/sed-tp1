@@ -23,14 +23,16 @@ def process_file(f, filename):
     return df
 
 def fetch_sim_data(dir_prefix):
-	df = pd.DataFrame()
-	for file in os.listdir():
-	    if (not file.startswith(dir_prefix)):
-	        continue
-	        
-	    print("Processing file {}".format(file))
-	    with open(file + '/output', 'r') as f:
-	        current_df = process_file(f, file)
-	        df = df.append(current_df)
-	
-	return df
+    df = pd.DataFrame()
+    for file in os.listdir():
+        if (not file.startswith(dir_prefix)):
+            continue
+        print("Processing file {}".format(file))
+        with open(file + '/output', 'r') as f:
+            current_df = process_file(f, file)
+            df = df.append(current_df)
+
+    df['sun_degree'] = df['sun_degree'].apply(lambda x: float(x))
+    df['sun_radiation'] = df['sun_radiation'].apply(lambda x: float(x))
+
+    return df
