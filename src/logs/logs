@@ -1,0 +1,8 @@
+[logfiles]
+engine : logs/logs04 
+solar_cell : logs/logs03 
+controller : logs/logs02 
+solar_panel : logs/logs05 
+sun : logs/logs01 
+top : logs/logs06 
+ParallelRoot : logs/logs00 
